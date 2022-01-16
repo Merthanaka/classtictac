@@ -1,0 +1,58 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    public class Class1
+    {
+
+        public string newgame;
+        public string about;
+        public string exit;
+
+        public void MenuGoster()
+        {
+            Console.WriteLine("------------------|");
+            Console.Write("+||");
+            System.Threading.Thread.Sleep(200);
+            Console.Write("-");
+            System.Threading.Thread.Sleep(200);
+            Console.Write("T");
+            System.Threading.Thread.Sleep(200);
+            Console.Write("i");
+            System.Threading.Thread.Sleep(200);
+            Console.Write("c");
+            System.Threading.Thread.Sleep(200);
+            Console.Write("-");
+            System.Threading.Thread.Sleep(200);
+            Console.Write("T");
+            System.Threading.Thread.Sleep(200);
+            Console.Write("a");
+            System.Threading.Thread.Sleep(200);
+            Console.Write("c");
+            System.Threading.Thread.Sleep(200);
+            Console.Write("-");
+            System.Threading.Thread.Sleep(200);
+            Console.Write("T");
+            System.Threading.Thread.Sleep(200);
+            Console.Write("o");
+            System.Threading.Thread.Sleep(200);
+            Console.Write("e");
+            System.Threading.Thread.Sleep(200);
+            Console.Write("+||");  
+            Console.WriteLine(".");
+            Console.WriteLine("------------------|");
+            Console.WriteLine("(n)-New Game");
+            Console.WriteLine("------------------|");
+            Console.WriteLine("(a)-About the author");
+            Console.WriteLine("------------------|");
+            Console.WriteLine("(e)-Exit");
+            Console.WriteLine("------------------|");
+
+        }
+       
+    }
+}
