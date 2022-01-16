@@ -1,0 +1,171 @@
+using System;
+using ConsoleApp2;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    public class Class2
+    {
+        public void GamePlay()
+        {
+            GamePlay:
+
+            char player = 'X';
+            char[,] board = new char[3, 3];
+            bool playAgain = true;
+            int moovesPlayed = 0;
+            while (playAgain == true)
+            {
+                Console.Clear();
+
+                DrawBoard(board);
+
+                Console.WriteLine("\n");
+
+                int row, col;
+
+                addData(out row, out col);
+
+                if (board[row, col] == 'X' || board[row, col] == 'X')
+                {
+                    Console.WriteLine("Already exist");
+
+                    Console.ReadKey();
+
+                }
+
+                else
+                {
+
+                    board[row, col] = player;
+
+                    moovesPlayed++;
+
+                }
+
+                if (player == board[0, 0] && player == board[0, 1] && player == board[0, 2]
+                    || player == board[1, 0] && player == board[1, 1] && player == board[1, 2]
+                    || player == board[2, 0] && player == board[2, 1] && player == board[2, 2]
+                    || player == board[0, 0] && player == board[1, 0] && player == board[2, 0]
+                    || player == board[0, 1] && player == board[1, 1] && player == board[2, 1]
+                    || player == board[0, 2] && player == board[1, 2] && player == board[2, 2]
+                    || player == board[0, 0] && player == board[1, 1] && player == board[2, 2]
+                    || player == board[0, 2] && player == board[1, 1] && player == board[2, 0])
+                {
+                    Console.Write($" {player} H");
+                    System.Threading.Thread.Sleep(200);
+                    Console.Write("A");
+                    System.Threading.Thread.Sleep(200);
+                    Console.Write("S");
+                    System.Threading.Thread.Sleep(200);
+                    Console.Write(" ");
+                    System.Threading.Thread.Sleep(200);
+                    Console.Write("W");
+                    System.Threading.Thread.Sleep(200);
+                    Console.Write("O");
+                    System.Threading.Thread.Sleep(200);
+                    Console.Write("N");
+                    System.Threading.Thread.Sleep(200);
+                    Console.Write("!");
+                    Console.WriteLine(" ");
+                    Console.WriteLine("Play again? N" + "/" + "Y");
+
+                    string input = Console.ReadLine();
+
+                    if (input.ToLower() == "y")
+                    {
+
+                        playAgain = true;
+
+                        goto GamePlay;
+
+                    }
+
+                    else if (input.ToLower() == "n")
+                    {
+
+                        playAgain = false;
+
+                    }
+
+                }
+
+                if (moovesPlayed == 9)
+                {
+                    Console.WriteLine("Is a Draw");
+
+                    break;
+
+                }
+                player = ChangeTurn(player);
+                DrawBoard(board);
+            }
+        }
+
+    
+
+
+
+    private static void DrawBoard(char[,] board)
+{
+
+
+
+    Console.Write("     0   1   2  ");
+
+    Console.WriteLine("\n");
+
+    for (int row = 0; row < 3; row++)
+    {
+        Console.Write($"{row}  | ");
+        for (int colnum = 0; colnum < 3; colnum++)
+        {
+            Console.Write(board[row, colnum]);
+            Console.Write(" | ");
+        }
+        Console.WriteLine();
+    }
+}
+    private static char ChangeTurn(char currentPlayer)
+{
+    if (currentPlayer == 'X')
+    {
+        return 'O';
+    }
+    else
+    {
+        return 'X';
+    }
+}
+
+    private static void addData(out int row, out int col)
+{
+    Console.Write("Enter row: ");
+    string inputRow = Console.ReadLine();
+    while (!int.TryParse(inputRow, out row))
+    {
+        Console.Write("Enter row: ");
+
+        inputRow = Console.ReadLine();
+
+    }
+
+    Console.Write("Enter column: ");
+
+    string inputColunm = Console.ReadLine();
+
+    while (!int.TryParse(inputColunm, out col))
+    {
+        Console.Write("Enter column: ");
+
+        inputColunm = Console.ReadLine();
+    }
+
+
+}
+    }
+}
+  
